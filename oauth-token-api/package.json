@@ -1,24 +1,24 @@
 {
-  "name": "spotify-oauth-token-api",
+  "name": "azuread-auth-token-api",
   "version": "1.0.0",
   "description": "The AWS lambda service that is responsible for dealing with OAuth token refresh and exchange.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Festify/cordova-spotify.git"
+    "url": "git+https://github.com/predatorx7/cordova-azuread-auth.git"
   },
   "keywords": [
     "cordova",
-    "spotify",
+    "azuread",
     "token",
     "exchange",
     "oauth"
   ],
-  "author": "Festify Dev Team <git@getfestify.de>",
+  "author": "Mushaheed Syed <smushaheed@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Festify/cordova-spotify/issues"
+    "url": "https://github.com/predatorx7/cordova-azuread-auth/issues"
   },
-  "homepage": "https://github.com/Festify/cordova-spotify#readme",
+  "homepage": "https://github.com/predatorx7/cordova-azuread-auth#readme",
   "dependencies": {
     "dotenv": "^2.0.0",
     "es6-promise": "^4.0.5",

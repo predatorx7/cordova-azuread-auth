@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-spotify-oauth" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>cordova-spotify-oauth</name>
+<plugin id="cordova-azuread-auth" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-azuread-auth</name>
 
-    <js-module name="cordova-spotify-oauth" src="www/build/spotify-oauth.min.js">
+    <js-module name="cordova-azuread-auth" src="www/build/azuread-auth.min.js">
         <merges target="cordova.plugins"/>
     </js-module>
 
@@ -10,8 +10,8 @@
 
     <platform name="android">
         <config-file target="config.xml" parent="/*">
-            <feature name="SpotifyOAuth">
-                <param name="android-package" value="rocks.festify.SpotifyOAuthPlugin"/>
+            <feature name="AzureADAuth">
+                <param name="android-package" value="rocks.festify.AzureADAuthPlugin"/>
             </feature>
         </config-file>
 
@@ -21,21 +21,21 @@
                 android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         </config-file>
 
-        <source-file src="src/android/SpotifyOAuthPlugin.java" target-dir="src/rocks/festify"/>
+        <source-file src="src/android/AzureADAuthPlugin.java" target-dir="src/rocks/festify"/>
 
         <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
     </platform>
 
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="SpotifyOAuth">
-                <param name="ios-package" value="SpotifyOAuthPlugin"/>
+            <feature name="AzureADAuth">
+                <param name="ios-package" value="AzureADAuthPlugin"/>
             </feature>
         </config-file>
 
         <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
 
-        <source-file src="src/ios/SpotifyOAuthPlugin.swift"/>
-        <header-file src="src/ios/SpotifyOAuth-Bridging-Header.h"/>
+        <source-file src="src/ios/AzureADAuthPlugin.swift"/>
+        <header-file src="src/ios/AzureADAuth-Bridging-Header.h"/>
     </platform>
 </plugin>

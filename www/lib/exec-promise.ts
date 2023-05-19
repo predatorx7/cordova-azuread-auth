@@ -8,7 +8,7 @@ const q = queue(({ methodName, args }, cb) => {
     _exec(
         val => setTimeout(() => cb(null, val)),
         err => setTimeout(() => cb(err)),
-        'SpotifyOAuth',
+        'AzureADAuth',
         methodName,
         args || []
     )

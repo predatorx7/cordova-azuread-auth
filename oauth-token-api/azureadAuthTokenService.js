@@ -27,7 +27,7 @@ function cors(response) {
   return response;
 }
 
-const spotifyRequest = params => {
+const azureADRequest = params => {
     return new Promise((resolve, reject) => {
         request.post(API_URL, {
             form: params,
@@ -69,7 +69,7 @@ module.exports.exchangeCode = (event, context, callback) => {
         return;
     }
 
-    spotifyRequest({
+    azureADRequest({
         grant_type: "authorization_code",
         redirect_uri: CLIENT_CALLBACK_URL,
         code: params.code
@@ -105,7 +105,7 @@ module.exports.refreshToken = (event, context, callback) => {
         return;
     }
 
-    spotifyRequest({
+    azureADRequest({
         grant_type: "refresh_token",
         refresh_token: crypto.decrypt(params.refresh_token, ENCRYPTION_SECRET)
     })

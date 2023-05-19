@@ -6,7 +6,7 @@ import exec from './lib/exec-promise';
  *
  * The data is stored as stringified JSON object.
  */
-export const LOCAL_STORAGE_KEY = "SpotifyOAuthData";
+export const LOCAL_STORAGE_KEY = "AzureADAuthData";
 
 /**
  * The authorization data.

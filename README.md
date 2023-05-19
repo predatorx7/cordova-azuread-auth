@@ -1,20 +1,20 @@
-# Cordova Spotify OAuth Plugin
+# Cordova AzureAD Auth Plugin
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Festify/cordova-spotify-oauth.svg)](https://greenkeeper.io/) [![Travis](https://img.shields.io/travis/Festify/cordova-spotify-oauth.svg)](https://travis-ci.org/Festify/cordova-spotify-oauth)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Festify/cordova-azuread-auth.svg)](https://greenkeeper.io/) [![Travis](https://img.shields.io/travis/Festify/cordova-azuread-auth.svg)](https://travis-ci.org/Festify/cordova-azuread-auth)
 
-Easy Spotify authentication for [Apache Cordova][cordova] / PhoneGap apps
+Easy AzureAD authentication for [Apache Cordova][cordova] / PhoneGap apps
 
 [API Documentation][api-docs]
 
 ## Features
 
-This plugin provides a simple way of authenticating a user with the Spotify API using the authorization code flow.
+This plugin provides a simple way of authenticating a user with the AzureAD API using the authorization code flow.
 
 The plugin uses `SFSafariViewController` and Chrome Custom Tabs, if available. This also means it will only work on iOS 9 and above (but this shouldn't be a problem anymore).
 
 ## Examples
 
-The plugin consists of two functions clobbered onto `cordova.plugins.spotifyAuth`.
+The plugin consists of two functions clobbered onto `cordova.plugins.azureADAuth`.
 
 ### Log in
 ```js
@@ -26,7 +26,7 @@ const config = {
   tokenRefreshUrl: "<URL OF TOKEN REFRESH HTTP ENDPOINT>",
 };
 
-cordova.plugins.spotifyAuth.authorize(config)
+cordova.plugins.azureADAuth.authorize(config)
   .then(({ accessToken, expiresAt }) => {
     console.log(`Got an access token, its ${accessToken}!`);
     console.log(`Its going to expire in ${expiresAt - Date.now()}ms.`);
@@ -35,13 +35,13 @@ cordova.plugins.spotifyAuth.authorize(config)
 
 ### Log out
 ```js
-cordova.plugins.spotifyAuth.forget();
+cordova.plugins.azureADAuth.forget();
 ```
 
 ## Installation
 
 ```bash
-cordova plugin add cordova-spotify-oauth
+cordova plugin add cordova-azuread-auth
 ```
 
 ## Usage
@@ -94,7 +94,7 @@ Head over to the [API Documentation][api-docs].
 Pull requests are very welcome! Please use the [gitmoji][gitmoji] style for commit messages.
 
 
-[api-docs]: https://festify.github.io/cordova-spotify-oauth/ "API Documentation"
+[api-docs]: https://festify.github.io/cordova-azuread-auth/ "API Documentation"
 [auth-code-flow]: https://developer.spotify.com/web-api/authorization-guide/#authorization-code-flow
 [aws-lambda]: https://aws.amazon.com/lambda/ "AWS Lambda"
 [cordova]: https://cordova.apache.org/ "Apache Cordova"
@@ -102,7 +102,7 @@ Pull requests are very welcome! Please use the [gitmoji][gitmoji] style for comm
 [gitmoji]: https://gitmoji.carloscuesta.me/ "Gitmoji"
 [serverless]: https://serverless.com "Serverless Framework"
 [serverless-installation]: https://serverless.com/framework/docs/providers/aws/guide/installation/ "Serverless Framework Installation"
-[token-api-example]: https://github.com/Festify/cordova-spotify-oauth/tree/develop/oauth-token-api "OAuth Token Service example"
-[token-exchange-url]: https://festify.github.io/cordova-spotify-oauth/interfaces/config.html#tokenexchangeurl "OAuth Auth Code Exchange URL"
-[token-refresh-url]: https://festify.github.io/cordova-spotify-oauth/interfaces/config.html#tokenrefreshurl "OAuth Access Token Refresh URL"
+[token-api-example]: https://github.com/Festify/cordova-azuread-auth/tree/develop/oauth-token-api "OAuth Token Service example"
+[token-exchange-url]: https://festify.github.io/cordova-azuread-auth/interfaces/config.html#tokenexchangeurl "OAuth Auth Code Exchange URL"
+[token-refresh-url]: https://festify.github.io/cordova-azuread-auth/interfaces/config.html#tokenrefreshurl "OAuth Access Token Refresh URL"
 [yarn-install]: https://yarnpkg.com/en/docs/install "Yarn Install"

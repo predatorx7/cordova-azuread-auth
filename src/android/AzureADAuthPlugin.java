@@ -9,9 +9,9 @@ import org.json.*;
 
 import com.spotify.sdk.android.authentication.*;
 
-public class SpotifyOAuthPlugin extends CordovaPlugin {
+public class AzureADAuthPlugin extends CordovaPlugin {
     private static final int LOGIN_REQUEST_CODE = 8139;
-    private static final String TAG = SpotifyOAuthPlugin.class.getName();
+    private static final String TAG = AzureADAuthPlugin.class.getName();
 
     private CallbackContext currentCtx = null;
 

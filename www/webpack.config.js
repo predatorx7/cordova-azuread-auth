@@ -2,7 +2,7 @@ const TypeDocPlugin = require('typedoc-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    entry: './spotify-oauth.ts',
+    entry: './azuread-auth.ts',
     module: {
         rules: [{
             test: /(\.ts)/,
@@ -21,8 +21,8 @@ module.exports = {
     ],
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'spotify-oauth.min.js',
-        library: 'spotifyAuth',
+        filename: 'azuread-auth.min.js',
+        library: 'azureADAuth',
         libraryTarget: 'commonjs'
     },
     plugins: [
@@ -30,10 +30,10 @@ module.exports = {
             excludeExternals: true,
             excludePrivate: true,
             ignoreCompilerErrors: true,
-            name: "Cordova Spotify OAuth Plugin",
+            name: "Cordova AzureAD Auth Plugin",
             mode: 'file',
             readme: 'none',
             target: 'ES6'
-        }, './spotify-oauth.ts')
+        }, './azuread-auth.ts')
     ]
 };

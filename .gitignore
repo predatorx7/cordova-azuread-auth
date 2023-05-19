@@ -75,10 +75,10 @@ package-lock.json
 # Yarn Integrity file
 .yarn-integrity
 
-# SpotifySDK
-src/ios/spotify-sdk/
-src/android/spotify-auth/
-src/android/spotify-sdk/
+# AzureADSdk
+src/ios/azuread-sdk/
+src/android/azuread-auth/
+src/android/azuread-sdk/
 
 # Serverless
 .serverless/

@@ -8,7 +8,7 @@ extension URL {
     }
 }
 
-@objc(SpotifyOAuthPlugin) class SpotifyOAuthPlugin: CDVPlugin, SFSafariViewControllerDelegate {
+@objc(AzureADAuthPlugin) class AzureADAuthPlugin: CDVPlugin, SFSafariViewControllerDelegate {
     private var currentCommand: CDVInvokedUrlCommand?
     private var currentNsObserver: AnyObject?
     
