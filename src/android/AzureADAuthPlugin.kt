@@ -1,4 +1,4 @@
-package rocks.festify;
+package com.hdfc;
 
 import android.app.Activity;
 import android.content.Intent;

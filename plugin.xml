@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-azuread-auth" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-azuread-auth" version="0.1.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-azuread-auth</name>
 
     <js-module name="cordova-azuread-auth" src="www/build/azuread-auth.min.js">
@@ -11,17 +13,23 @@
     <platform name="android">
         <config-file target="config.xml" parent="/*">
             <feature name="AzureADAuth">
-                <param name="android-package" value="rocks.festify.AzureADAuthPlugin"/>
+                <param name="android-package" value="com.hdfc.AzureADAuthPlugin"/>
             </feature>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity
-                android:name="com.spotify.sdk.android.authentication.LoginActivity"
-                android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         </config-file>
-
-        <source-file src="src/android/AzureADAuthPlugin.java" target-dir="src/rocks/festify"/>
+        <preference name="GradlePluginKotlinEnabled" value="true" />
+        <preference name="GradlePluginKotlinCodeStyle" value="official" />
+        <preference name="GradlePluginKotlinVersion" value="1.4.31" />
+        <source-file src="src/android/AzureADAuthPlugin.kt" target-dir="src/main/kotlin/com/hdfc"/>
+        <source-file src="src/android/MSALAccountParse.kt" target-dir="src/main/kotlin/com/hdfc"/>
+        <source-file src="src/android/MSALConfigParser.kt" target-dir="src/main/kotlin/com/hdfc"/>
+        <source-file src="src/android/MSALResultParser.kt" target-dir="src/main/kotlin/com/hdfc"/>
+        <source-file src="src/android/MSALSilentTokenParametersParser.kt" target-dir="src/main/kotlin/com/hdfc"/>
+        <source-file src="src/android/MSALTokenParametersParser.kt" target-dir="src/main/kotlin/com/hdfc"/>
 
         <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
     </platform>

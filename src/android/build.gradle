@@ -6,12 +6,27 @@ repositories {
 }
 
 dependencies {
-    compile 'com.spotify.android:auth:1.0.0-alpha'
+    implementation 'com.microsoft.identity.client:msal:4.0.2'
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+        }
+    }
 }
 
 android {
     packagingOptions {
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
+    }
+    sourceSets {
+        main.java {
+            srcDirs += 'src/main/kotlin'
+        }
     }
 }
