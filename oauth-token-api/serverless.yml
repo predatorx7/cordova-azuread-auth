@@ -14,14 +14,14 @@ package:
 
 functions:
   exchangeCode:
-    handler: spotifyTokenService.exchangeCode
+    handler: azureADAuthTokenService.exchangeCode
     events:
       - http:
           path: exchange
           method: post
           cors: true
   refreshToken:
-    handler: spotifyTokenService.refreshToken
+    handler: azureADAuthTokenService.refreshToken
     events:
       - http:
           path: refresh
