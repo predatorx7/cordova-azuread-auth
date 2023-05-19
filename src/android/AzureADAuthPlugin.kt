@@ -9,15 +9,15 @@ import org.json.*;
 
 import com.spotify.sdk.android.authentication.*;
 
-public class AzureADAuthPlugin extends CordovaPlugin {
+class AzureADAuthPlugin extends CordovaPlugin {
     private static final int LOGIN_REQUEST_CODE = 8139;
     private static final String TAG = AzureADAuthPlugin.class.getName();
 
     private CallbackContext currentCtx = null;
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext ctx) 
-            throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext ctx)
+    throws JSONException {
         if ("getCode".equals(action)) {
             String clientId = args.getString(0);
             String redirectUrl = args.getString(1);
@@ -31,27 +31,27 @@ public class AzureADAuthPlugin extends CordovaPlugin {
     }
 
     private void getCode(
-        final String clientId, 
-        final String redirectUrl, 
-        final String[] scopes,
-        final CallbackContext ctx
+            final String clientId,
+            final String redirectUrl,
+            final String[] scopes,
+            final CallbackContext ctx
     ) {
         cordova.setActivityResultCallback(this);
         this.currentCtx = ctx;
 
         AuthenticationRequest ab = (new AuthenticationRequest.Builder(
-            clientId,
-            AuthenticationResponse.Type.CODE,
-            redirectUrl
+                clientId,
+                AuthenticationResponse.Type.CODE,
+                redirectUrl
         ))
-            .setScopes(scopes)
+        .setScopes(scopes)
             .setShowDialog(true)
             .build();
 
         AuthenticationClient.openLoginActivity(
-            this.cordova.getActivity(), 
-            LOGIN_REQUEST_CODE, 
-            ab
+                this.cordova.getActivity(),
+                LOGIN_REQUEST_CODE,
+                ab
         );
     }
 
@@ -80,16 +80,16 @@ public class AzureADAuthPlugin extends CordovaPlugin {
             cb.success(res);
         } else {
             JSONObject err = response.getType() == AuthenticationResponse.Type.EMPTY ?
-                this.makeError(
+            this.makeError(
                     "auth_canceled",
                     "The user cancelled the authentication process."
-                ) : this.makeError(
-                    "auth_failed",
-                    "Received authentication response of invalid type " + response.getType().toString()
-                );
+            ) : this.makeError(
+            "auth_failed",
+            "Received authentication response of invalid type " + response.getType().toString()
+            );
             cb.error(err);
         }
-            
+
         this.currentCtx = null;
     }
 
@@ -108,12 +108,12 @@ public class AzureADAuthPlugin extends CordovaPlugin {
     private static String[] toStringArray(JSONArray arr) {
         String[] res = new String[arr.length()];
         for (int i = 0; i < arr.length(); i++) {
-            try {
-                res[i] = arr.getString(i);
-            } catch (JSONException ex) {
-                Log.e(TAG, "Couldn't parse JSON string array.", ex);
-            }
+        try {
+            res[i] = arr.getString(i);
+        } catch (JSONException ex) {
+            Log.e(TAG, "Couldn't parse JSON string array.", ex);
         }
+    }
         return res;
     }
 }

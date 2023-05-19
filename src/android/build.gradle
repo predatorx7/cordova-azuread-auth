@@ -1,3 +1,4 @@
+
 repositories {
     jcenter()
     flatDir {
@@ -28,5 +29,10 @@ android {
         main.java {
             srcDirs += 'src/main/kotlin'
         }
+    }
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
